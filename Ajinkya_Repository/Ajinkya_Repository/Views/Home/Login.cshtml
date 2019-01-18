@@ -1,0 +1,68 @@
+﻿@model Ajinkya_Repository.Models.Classes.Login_Model
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row TopHeightLogin">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 Outer_Window">
+        <div class="Inner_Window">
+            @if (Request.IsAuthenticated)
+            {
+                <div class="alert alert-success" align="center">
+                    <strong><i class="glyphicon glyphicon-search"></i> You Are Already Signed In On This Web Site ...</strong>
+                </div>
+            }
+            else
+            {
+                using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-danger">
+                            <strong>Error! </strong>@ViewBag.Message
+                        </div>
+                    }
+                    <div class="form-horizontal">
+                        <h4>Login</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Email_ID, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(model => model.Email_ID) } })
+                            @Html.ValidationMessageFor(model => model.Email_ID, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = Html.DisplayNameFor(model => model.Password) } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.RememberMe)
+                            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label" })
+                        </div>
+
+                        <div class="form-group">
+                            <a class="text-danger" href="@Url.Action("ForgotPassword", "Home")"><i class="icon-lock-open"></i> Forgot Password </a>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Login" class="btn btn-success col-sm-12" />
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+
+@section Scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+

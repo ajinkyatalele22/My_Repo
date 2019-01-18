@@ -1,0 +1,60 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.BackColor {
+    background-color:#ededed;
+}
+
+.Outer_Window {
+padding:10px 10px 10px 10px;
+border:dashed 2px green;
+}
+
+.Inner_Window {
+margin:15px 15px 15px 15px;
+}
+
+.TopHeight {
+margin-top:20px;
+}
+
+.TopHeightLogin {
+margin-top:80px;
+}
+
+.TopHeightForgotPassword {
+margin-top:100px;
+}
+
+.TopHeightResetPassword {
+margin-top:120px;
+}
+
+.InnerBox {
+margin:10px 10px 10px 10px;
+border:dashed 1px black;
+border-radius:25px;
+padding:10px 10px 10px 10px;
+}
+
+.InnerBox:hover {
+background-color:#f9f9f9;
+}
+
+.CircleBox {
+    height:100px;
+    width:100px;
+border-top-left-radius:50%;
+border-top-right-radius:50%;
+border-bottom-left-radius:50%;
+border-bottom-right-radius:50%;
+background-color:rgba(10, 233, 247, 0.63);
+}
+
+.Glypo {
+margin:10px 18px;
+font-size:60px;
+}
+

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "VerifyAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 Outer_Window">
+        <div class="Inner_Window">
+            @if (Request.IsAuthenticated)
+            {
+                <div class="alert alert-success" align="center">
+                    <strong><i class="glyphicon glyphicon-search"></i> You Are Already Signed In On This Web Site ...</strong>
+                </div>
+            }
+            else
+            {
+                if (ViewBag.Message == "Invalid Request . . . ")
+                {
+                    <div class="alert alert-danger">
+                        <strong>@ViewBag.Message</strong>
+                    </div>
+
+                    <div class="col-lg-12 form-group">
+                        <a class="text-success" href="@Url.Action("Login", "Home")"><st><strong>Log Me In ... </strong></a>
+                    </div>
+                }
+                else if (ViewBag.Message != "Invalid Request . . . ")
+                {
+                    <div class="alert alert-success">
+                        <strong>@ViewBag.Message</strong>
+                    </div>
+
+                    <div class="col-lg-12 form-group">
+                        <a class="text-success" href="@Url.Action("Login", "Home")"><st><strong>Log Me In ... </strong></a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+@section Scripts{
+}
